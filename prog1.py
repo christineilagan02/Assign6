@@ -6,6 +6,7 @@ second = float(input("Enter your second number: "))
 third = float(input("Enter your third number: "))
 fourth = float(input("Enter your fourth number: "))
 
+
 def highest_to_lowest(first, second, third, fourth):
     if first >= second and first >= third and first >= fourth:
         if second >= third and third >= fourth:
@@ -66,5 +67,6 @@ def highest_to_lowest(first, second, third, fourth):
         else:
            if third >= second and second >= first:
                print(f"The numbers are in the following order: {fourth}, {third}, {second}, and {first}.")
+
 
 highest = highest_to_lowest(first, second, third, fourth)
