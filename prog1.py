@@ -19,7 +19,8 @@ def highest_to_lowest(first, second, third, fourth):
         elif second <= fourth and second >= third:
             print(f"The numbers are in the following order: {first}, {fourth}, {second}, and {third}.")
         else:
-            print(f"The numbers are in the following order: {first}, {fourth}, {third}, and {second}.")
+           if fourth >= third and third >= second:
+               print(f"The numbers are in the following order: {first}, {fourth}, {third}, and {second}.")
 
     if second >= first and second >= third and second >= fourth:
         if first >= third and third >= fourth:
@@ -33,7 +34,8 @@ def highest_to_lowest(first, second, third, fourth):
         elif first <= fourth and first >= third:
             print(f"The numbers are in the following order: {second}, {fourth}, {first}, and {third}.")
         else:
-            print(f"The numbers are in the following order: {second}, {fourth}, {third}, and {first}.")
+            if third >= fourth and third >= first:
+                print(f"The numbers are in the following order: {second}, {fourth}, {third}, and {first}.")
 
     if third >= first and third >= second and third >= fourth:
         if first >= second and second >= fourth:
@@ -47,7 +49,8 @@ def highest_to_lowest(first, second, third, fourth):
         elif fourth <= first and first >= second:
             print(f"The numbers are in the following order: {third}, {fourth}, {first}, and {second}.")
         else:
-            print(f"The numbers are in the following order: {third}, {fourth}, {second}, and {first}.")
+            if fourth >= second and second >= first:
+                print(f"The numbers are in the following order: {third}, {fourth}, {second}, and {first}.")
 
     if fourth >= first and fourth >= second and fourth >= third:
         if first >= second and second >= third:
@@ -61,6 +64,7 @@ def highest_to_lowest(first, second, third, fourth):
         elif first <= third and first >= second:
             print(f"The numbers are in the following order: {fourth}, {third}, {first}, and {second}.")
         else:
-            print(f"The numbers are in the following order: {fourth}, {third}, {second}, and {first}.")
+           if third >= second and second >= first:
+               print(f"The numbers are in the following order: {fourth}, {third}, {second}, and {first}.")
 
 highest = highest_to_lowest(first, second, third, fourth)
