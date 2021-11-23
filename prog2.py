@@ -5,22 +5,22 @@
 # Display the result summary of the 10 operations (ex 9/10)
 
 import random
+import sys
 
 
 def display_intro():
-    name = input("Please, enter your name: ")
-    print(f"Alright! {name} Welcome to Tine's Addition Quiz!")
+    name = input("\nPlease, enter your name: ")
+    print(f"Alright! {name}, Welcome to Tine's Addition Quiz!")
     print("\nAre you ready?")
     answer = input("Enter yes or no: ")
     if answer == "yes":
-        print("Prepare your self!")
+        print("\nPrepare your self!")
     elif answer == "no":
-        print("You can now exit.")
+        print("\nYou can now exit.")
+        sys.exit(display_separator())
     else:
-        print("Please enter yes or no.")
+        print("\nPlease enter yes or no.")
 
-
-total = 10
 
 def begin():
     title = "** Tine's Addition Quiz **"
@@ -40,18 +40,21 @@ def display_separator():
     print("-" * 24)
 
 def get_user_input():
-    user_input = int(input("Enter your choice: "))
+    user_input = int(input("\nEnter your choice: "))
     while user_input > 3 or user_input <= 0:
-        print("Invalid menu option.")
-        user_input = int(input("Please try again: "))
+        print("\nInvalid menu option.")
+        user_input = int(input("\nPlease try again: "))
     else:
         return user_input
 
-def get_user_solution(problem):
-    print("Enter your answer")
-    print(problem, end="")
-    result = int(input(" = "))
-    return result
+def get_user_solution(problem, question):
+    question = 0
+    while question <= 4:
+        question += 1
+        print('\nQuestion number: {}'.format(question))
+        print(problem, end="")
+        result = int(input(" = "))
+        return result
 
 def check_solution(user_solution, solution, count):
     if user_solution == solution:
@@ -60,35 +63,41 @@ def check_solution(user_solution, solution, count):
         return count
     else:
         print("Incorrect :(")
-        return count
+        return count 
 
 
 def menu_option(index, count):
-    for problem in range(1, 11):
-        number_one = random.randrange(0, 99)
-        number_two = random.randrange(0, 99)
-        if index == 1:
-            problem = str(number_one) + " + " + str(number_two)
-            solution = number_one + number_two
-            user_solution = get_user_solution(problem)
-            count = check_solution(user_solution, solution, count)
-            return count
-        else:
-            problem = str(number_one) + " + " + str(number_two)
-            solution = number_one + number_two
-            user_solution = get_user_solution(problem)
-            count = check_solution(user_solution, solution, count)
-            return count
+    question = 0
+    number_one = random.randrange(0, 5)
+    number_two = random.randrange(0, 5)
+    if index == 1: 
+        problem = str(number_one) + " + " + str(number_two)
+        solution = number_one + number_two
+        user_solution = get_user_solution(problem, question)
+        count = check_solution(user_solution, solution, count)
+        return count
+    else:
+        problem = str(number_one) + " + " + str(number_two)
+        solution = number_one + number_two
+        user_solution = get_user_solution(problem, question)
+        count = check_solution(user_solution, solution, count)
+        return count
 
 def display_result(correct, wrong):
+    total = 0
     if correct >= 10 and wrong == 0:
-        print(f"Your score is {correct}/{total} ")
+        print(f"Your score is {correct}/{total}.")
+        print("Perfect! :)")
     elif correct >= 5 or correct == 9 and wrong >= 1:
         print(f"Your score is {correct}/{total} ")
+        print("Very Good! Keep it up! :)")
     elif correct >= 1 or correct == 4 and wrong >= 1:
         print(f"Your score is {correct}/{total} ")
+        print("Good! But you need more practice!")
     else:
         print(f"Your score is {correct}/{total} ")
+        print("You need more practice. :(")
+
 
 
 def menu():
@@ -100,13 +109,17 @@ def menu():
     option = get_user_input()
     total = 0
     correct = 0
+    wrong = 0
+    index = 0
+    count = 0
     while option != 3:
         total = total + 1
         correct = menu_option(option, correct)
-        option = get_user_input()
+        option = menu_option(index, count)
 
-    print("Exit the quiz.")
+
+    print("\nExit the quiz.")
     display_separator()
+    display_result(correct, wrong)
 
 menu()
-
