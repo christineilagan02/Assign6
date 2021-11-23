@@ -47,14 +47,11 @@ def get_user_input():
     else:
         return user_input
 
-def get_user_solution(problem, question):
-    question = 0
-    while question <= 4:
-        question += 1
-        print('\nQuestion number: {}'.format(question))
-        print(problem, end="")
-        result = int(input(" = "))
-        return result
+def get_user_solution(problem):
+    print("\nEnter your answer")
+    print(problem, end="")
+    result = int(input(" = "))
+    return result
 
 def check_solution(user_solution, solution, count):
     if user_solution == solution:
@@ -68,20 +65,22 @@ def check_solution(user_solution, solution, count):
 
 def menu_option(index, count):
     question = 0
-    number_one = random.randrange(0, 5)
-    number_two = random.randrange(0, 5)
-    if index == 1: 
-        problem = str(number_one) + " + " + str(number_two)
-        solution = number_one + number_two
-        user_solution = get_user_solution(problem, question)
-        count = check_solution(user_solution, solution, count)
-        return count
-    else:
-        problem = str(number_one) + " + " + str(number_two)
-        solution = number_one + number_two
-        user_solution = get_user_solution(problem, question)
-        count = check_solution(user_solution, solution, count)
-        return count
+    while question <= 4:
+        question += 1
+        number_one = random.randrange(0, 5)
+        number_two = random.randrange(0, 5)
+        if index == 1: 
+            problem = str(number_one) + " + " + str(number_two)
+            solution = number_one + number_two
+            user_solution = get_user_solution(problem)
+            count = check_solution(user_solution, solution, count)
+            return count
+        else:
+            problem = str(number_one) + " + " + str(number_two)
+            solution = number_one + number_two
+            user_solution = get_user_solution(problem)
+            count = check_solution(user_solution, solution, count)
+            return count
 
 def display_result(correct, wrong):
     total = 0
