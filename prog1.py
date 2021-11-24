@@ -37,7 +37,7 @@ def highest_to_lowest(first, second, third, fourth):
         elif first <= fourth and first >= third:
             sys.exit(f"The numbers are in the following order: {second}, {fourth}, {first}, and {third}.")
         else:
-                print(f"The numbers are in the following order: {second}, {fourth}, {third}, and {first}.")
+                sys.exit(f"The numbers are in the following order: {second}, {fourth}, {third}, and {first}.")
                 
 
     if third >= first and third >= second and third >= fourth:
@@ -48,11 +48,11 @@ def highest_to_lowest(first, second, third, fourth):
         elif first <= second and first >= fourth:
             sys.exit(f"The numbers are in the following order: {third}, {second}, {first}, and {fourth}.")
         elif fourth <= second and first <= fourth:
-            print(f"The numbers are in the following order: {third}, {second}, {fourth}, and {first}.")
-        elif fourth <= first and first >= second:
+            sys.exit(f"The numbers are in the following order: {third}, {second}, {fourth}, and {first}.")
+        elif fourth >= first and first >= second:
             sys.exit(f"The numbers are in the following order: {third}, {fourth}, {first}, and {second}.")
         else:
-                print(f"The numbers are in the following order: {third}, {fourth}, {second}, and {first}.")
+                sys.exit(f"The numbers are in the following order: {third}, {fourth}, {second}, and {first}.")
                 
 
     if fourth >= first and fourth >= second and fourth >= third:
@@ -60,14 +60,14 @@ def highest_to_lowest(first, second, third, fourth):
             sys.exit(f"The numbers are in the following order: {fourth}, {first}, {second}, and {third}.")
         elif first >= third and third >= second:
             sys.exit(f"The numbers are in the following order: {fourth}, {first}, {third}, and {second}.")
-        elif second <= first and first >= third:
+        elif second >= first and first >= third:
             sys.exit(f"The numbers are in the following order: {fourth}, {second}, {first}, and {third}.")
         elif second >= third and third >= first:
             sys.exit(f"The numbers are in the following order: {fourth}, {second}, {third}, and {first}.")
         elif first <= third and first >= second:
             sys.exit(f"The numbers are in the following order: {fourth}, {third}, {first}, and {second}.")
         else:
-               print(f"The numbers are in the following order: {fourth}, {third}, {second}, and {first}.")
+               sys.exit(f"The numbers are in the following order: {fourth}, {third}, {second}, and {first}.")
                
             
 

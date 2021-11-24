@@ -46,8 +46,8 @@ def display_separator():
 def get_user_input():
     user_input = int(input("\33[92mEnter your choice:\33[0m "))
     while user_input > 3 or user_input <= 0:
-        print("\nInvalid menu option.")
-        user_input = int(input("\nPlease try again: "))
+        print("\33[1m\33[31m\nInvalid menu option.\33[0m")
+        user_input = int(input("\33[1m\nPlease try again:\33[0m "))
     else:
         return user_input
 
@@ -65,48 +65,53 @@ def menu_option(index):
             number_two = random.randrange(0, 99)
             operation = random.choice(ops)
             maths = eval(str(number_one) + operation + str(number_two))
-            print('\nQuestion number: {}'.format(question))
+            print('\33[1m\nQuestion number:\33[0m \33[1m\33[32m{}\33[0m'.format(question))
             print ("The question is",number_one, operation, number_two)
 
-            d=int(input ("\nEnter your answer:"))
+            d=int(input ("\33[3m\33[1mEnter your answer:\33[0m"))
             if d == maths:
-                print ("Correct 😊👍!")
+                print ("\33[32m\33[1m\nCorrect! 😊👍\33[0m")
                 score = score + 1
+                display_separator()
             else:
-                print ("Incorrect 😔. The actual answer is",maths)
+                print ("\33[31m\33[1m\nIncorrect.😔 \33[0m \33[1m\33[3mThe actual answer is\33[0m",maths)
+                display_separator()
 
     elif index == 2:
-        while question <= 4:
+       while question <= 9:
             question += 1
             ops = ['+']
             number_one = random.randrange(0, 99)
             number_two = random.randrange(0, 99)
             operation = random.choice(ops)
             maths = eval(str(number_one) + operation + str(number_two))
-            print('\nQuestion number: {}'.format(question))
+            print('\33[1m\nQuestion number:\33[0m \33[1m\33[32m{}\33[0m'.format(question))
             print ("The question is",number_one, operation, number_two)
 
-            d=int(input ("What is your answer:"))
+            d=int(input ("\33[3m\33[1mEnter your answer:\33[0m"))
             if d == maths:
-                print ("Correct!😊👍")
+                print ("\33[32m\33[1m\nCorrect! 😊👍\33[0m")
                 score = score + 1
+                display_separator()
             else:
-                print ("Incorrect.😔 The actual answer is",maths)
+                print ("\33[31m\33[1m\nIncorrect.😔 \33[0m \33[1m\33[3mThe actual answer is\33[0m",maths)
+                display_separator()
     
         
     correct = score
+    display_separator()
     if correct == 10:
-        print(f"Your score is {correct}/{total}.")
-        print("Perfect!🥳")
+        print(f"\33[3m\33[1mYour score is\33[0m \33[1m\33[34m{correct}/{total}\33[0m.")
+        print("\33[1m\33[32mPerfect!🥳\33[0m")
     elif correct >= 5 or correct == 9:
-        print(f"Your score is {correct}/{total} ")
-        print("Very Good! Keep it up!😊👍")
+        print(f"\33[3m\33[1mYour score is\33[0m \33[1m\33[34m{correct}/{total}\33[0m.")
+        print("\33[1m\33[33mVery Good! Keep it up!😊👍\33[0m")
     elif correct >= 1 or correct == 4:
-        print(f"Your score is {correct}/{total} ")
-        print("Good! But you need more practice!👍")
+        print(f"\33[3m\33[1mYour score is\33[0m \33[1m\33[34m{correct}/{total}\33[0m.")
+        print("\33[1m\33[36mGood! But you need more practice!👍\33[0m")
     else:
-        print(f"Your score is {correct}/{total} ")
-        print("You need more practice.😔")
+        print(f"\33[3m\33[1mYour score is\33[0m \33[1m\33[34m{correct}/{total}\33[0m.")
+        print("\33[1m\33[31mYou need more practice.😔\33[1m")
 
 
 
@@ -128,7 +133,7 @@ def menu():
 
 
 
-    print("\nExit the quiz.")
+    print("\33[1m\33[93m\33[3m\nExit the quiz.\33[0m")
     display_separator()
 
 menu()
